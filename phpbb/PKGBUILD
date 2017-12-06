@@ -1,4 +1,4 @@
-developer=http://wikimediafoundation.org/
+developer=http://phpbb.com/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
