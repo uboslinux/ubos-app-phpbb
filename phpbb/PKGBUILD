@@ -1,0 +1,44 @@
+developer=http://wikimediafoundation.org/
+url=${developer}
+maintainer=http://indiecomputing.com/
+pkgname=$(basename $(pwd))
+pkgver=3.2.1
+pkgrel=1
+pkgdesc="Free, open source bulletin board software"
+arch=('any')
+license=("GPL")
+source=("https://www.phpbb.com/files/release/phpBB-${pkgver}.zip")
+releasepage=("https://www.phpbb.com/downloads/")
+depends=(
+    'php'
+)
+options=('!strip')
+sha512sums=('3cc05409520aacc332184aa0d5fcce54d3c963491e36d9561478b743aac47812504627b116c3d8b01c871cda1b0e9658e5bdc0680ad2b053559fea0b96741642')
+
+package() {
+# Manifest
+    mkdir -p ${pkgdir}/var/lib/ubos/manifests
+    install -m644 ${startdir}/ubos-manifest.json ${pkgdir}/var/lib/ubos/manifests/${pkgname}.json
+
+# Icons
+#    mkdir -p ${pkgdir}/srv/http/_appicons/$pkgname
+#    install -m644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/srv/http/_appicons/$pkgname/
+
+# Code
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/bin
+    install -m755 ${startdir}/bin/*.pl ${pkgdir}/usr/share/${pkgname}/bin/
+
+# Templates
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/tmpl
+    install -m644 ${startdir}/tmpl/*.tmpl ${pkgdir}/usr/share/${pkgname}/tmpl/
+
+# Source
+    mkdir -p ${pkgdir}/usr/share/${pkgname}/phpbb
+    cp -a $srcdir/phpBB3/* ${pkgdir}/usr/share/${pkgname}/phpbb/
+
+# Data
+    mkdir -p ${pkgdir}/var/lib/${pkgname}
+
+# Cache
+    mkdir -p ${pkgdir}/var/cache/${pkgname}
+}

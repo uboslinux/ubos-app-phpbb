@@ -1,0 +1,176 @@
+{
+    "type" : "app",
+
+    "roles" : {
+        "apache2" : {
+            "defaultcontext" : "/forum",
+            "depends" : [
+                "php",
+                "php-apache",
+                "php-gd"
+            ],
+            "apache2modules" : [
+                "php7"
+            ],
+            "phpmodules" : [
+                "gd",
+                "mysqli"
+            ],
+            "appconfigitems" : [
+                {
+                    "type"  : "directorytree",
+                    "names" : [
+                        "adm",
+                        "app.php",
+                        "assets",
+                        "bin",
+                        "common.php",
+                        "config.php", # will be overwritten
+                        "config",
+                        "cron.php",
+                        "docs",
+                        "download",
+                        "ext",
+                        "faq.php",
+                        "feed.php",
+                        "includes",
+                        "index.php",
+                        "language",
+                        "mcp.php",
+                        "memberlist.php",
+                        "phpbb",
+                        "posting.php",
+                        "report.php",
+                        "search.php",
+                        "styles",
+                        "ucp.php",
+                        "vendor",
+                        "viewforum.php",
+                        "viewonline.php",
+                        "viewtopic.php"
+                    ],
+                    "source" : "phpbb/$1"
+                },
+                {
+                    "type" : "directory",
+                    "names" : [
+                        "images",
+                        "images/avatars"
+                    ]
+                },
+                {
+                    "type"  : "directorytree",
+                    "names" : [
+                        "images/icons",
+                        "images/index.htm",
+                        "images/ranks",
+                        "images/smilies",
+                        "images/spacer.gif",
+                        "images/upload_icons",
+                        "images/avatars/gallery",
+                        "images/avatars/index.htm"
+                    ],
+                    "source" : "phpbb/$1"
+                },
+                {
+                    "type" : "directory",
+                    "name" : "/var/cache/${package.name}/${appconfig.appconfigid}",
+                    "mode" : "0755",
+                    "uname" : "${apache2.uname}",
+                    "gname" : "${apache2.gname}"
+                },
+                {
+                    "type" : "directory",
+                    "name" : "/var/lib/${package.name}/${appconfig.appconfigid}",
+                },
+                {
+                    "type" : "directory",
+                    "name" : "/var/lib/${package.name}/${appconfig.appconfigid}/files",
+                    "mode" : "0755",
+                    "uname" : "${apache2.uname}",
+                    "gname" : "${apache2.gname}",
+                    "retentionpolicy"  : "keep",
+                    "retentionbucket"  : "filesdir"
+                },
+                {
+                    "type" : "directory",
+                    "name" : "/var/lib/${package.name}/${appconfig.appconfigid}/store",
+                    "mode" : "0755",
+                    "uname" : "${apache2.uname}",
+                    "gname" : "${apache2.gname}",
+                    "retentionpolicy"  : "keep",
+                    "retentionbucket"  : "storedir"
+                },
+                {
+                    "type" : "directory",
+                    "name" : "/var/lib/${package.name}/${appconfig.appconfigid}/avatarsupload",
+                    "mode" : "0755",
+                    "uname" : "${apache2.uname}",
+                    "gname" : "${apache2.gname}",
+                    "retentionpolicy"  : "keep",
+                    "retentionbucket"  : "avatarsuploaddir"
+                },
+                {
+                    "type" : "symlink",
+                    "name" : "cache",
+                    "source" : "/var/cache/${package.name}/${appconfig.appconfigid}"
+                },
+                {
+                    "type" : "symlink",
+                    "names" : [
+                        "download",
+                        "files",
+                        "store"
+                    ],
+                    "source" : "/var/lib/${package.name}/${appconfig.appconfigid}/$2"
+                },
+                {
+                    "type" : "symlink",
+                    "name" : "images/avatars/upload",
+                    "source" : "/var/lib/${package.name}/${appconfig.appconfigid}/avatarsupload"
+                },
+                {
+                    "type"         : "file",
+                    "name"         : "${appconfig.apache2.appconfigfragmentfile}",
+                    "template"     : "tmpl/htaccess.tmpl",
+                    "templatelang" : "varsubst"
+                }
+            ],
+            "installers" : [
+                {
+                    "type" : "perlscript",
+                    "source" : "bin/install.pl"
+                }
+            ]
+        },
+        "mysql" : {
+            "appconfigitems" : [
+                {
+                    "type"       : "database",
+                    "name"       : "maindb",
+                    "retentionpolicy"  : "keep",
+                    "retentionbucket"  : "maindb",
+                    "privileges" : "select, insert, update, delete, create, alter, drop"
+                }
+            ]
+        }
+    },
+    "customizationpoints" : {
+        "title" : {
+            "name"     : "Title",
+            "type"     : "string",
+            "required" : false,
+            "default"  : {
+                "value" : "My discussion boards"
+            }
+        },
+        "tagline" : {
+            "name"     : "Tagline",
+            "type"     : "string",
+            "required" : false,
+            "default"  : {
+                "value" : "Let's keep talking"
+            }
+        }
+    }            
+}

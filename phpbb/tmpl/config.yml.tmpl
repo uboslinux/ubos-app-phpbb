@@ -1,0 +1,17 @@
+<?php
+// UBOS-generated
+
+$dbms = 'phpbb\\db\\driver\\mysqli';
+$dbhost = '${appconfig.mysql.dbhost.maindb}';
+$dbport = '';
+$dbname = '${appconfig.mysql.dbname.maindb}';
+$dbuser = '${appconfig.mysql.dbuser.maindb}';
+$dbpasswd = '${appconfig.mysql.dbusercredential.maindb}';
+$table_prefix = 'phpbb_';
+$phpbb_adm_relative_path = 'adm/';
+$acm_type = 'phpbb\\cache\\driver\\file';
+
+@define('PHPBB_INSTALLED', true);
+// @define('PHPBB_DISPLAY_LOAD_TIME', true);
+@define('PHPBB_ENVIRONMENT', 'production');
+// @define('DEBUG_CONTAINER', true);
