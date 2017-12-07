@@ -1,0 +1,13 @@
+== On extensions ==
+
+There is no need to activate an extension upon install, because the installer does this
+automatically if the extension files are in the right place prior to install.
+
+However, there is a need to activate extension upon upgrade, because the new
+Site JSON might have an additional extension.
+
+== On CLI ==
+
+There are two identically-named CLI scripts: one in bin/ and one in install/
+The one in bin/ does not work during install, and vice versa.
+

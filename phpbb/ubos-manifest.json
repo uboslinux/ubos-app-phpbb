@@ -118,7 +118,6 @@
                 {
                     "type" : "symlink",
                     "names" : [
-                        "download",
                         "files",
                         "store"
                     ],
@@ -138,8 +137,14 @@
             ],
             "installers" : [
                 {
-                    "type" : "perlscript",
+                    "type"   : "perlscript",
                     "source" : "bin/install.pl"
+                }
+            ],
+            "upgraders" : [
+                {
+                    "type"   : "perlscript",
+                    "source" : "bin/restore-config.pl"
                 }
             ]
         },

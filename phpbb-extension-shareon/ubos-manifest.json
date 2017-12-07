@@ -1,0 +1,22 @@
+{
+    "type"  : "accessory",
+
+    "accessoryinfo" : {
+        "appid"         : "phpbb",
+        "accessoryid"   : "vinny/shareon",
+        "accessorytype" : "extension"
+    },
+
+    "roles" : {
+        "apache2" : {
+            "appconfigitems" : [
+                {
+                    "type"   : "directorytree",
+                    "name"   : "ext/vinny",
+                    "source" : "vinny",
+                }
+            ]
+        }
+    }
+}
+

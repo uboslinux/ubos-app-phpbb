@@ -32,11 +32,11 @@ if( 'install' eq $operation ) {
     my $dbUser  = $config->getResolveOrNull( 'appconfig.mysql.dbuser.maindb' );
     my $dbCred  = $config->getResolveOrNull( 'appconfig.mysql.dbusercredential.maindb' );
 
-    my $hostname     = $config->getResolveOrNull( 'site.hostname' );
-    my $protocol     = $config->getResolveOrNull( 'site.protocol' );
-    my $protocolport = $config->getResolveOrNull( 'site.protocolport' );
-    my $context      = $config->getResolveOrNull( 'appconfig.context' );
-    my $cookieSecure = 'https' eq $protocol? 'true' : 'false';
+    my $hostname       = $config->getResolveOrNull( 'site.hostname' );
+    my $protocol       = $config->getResolveOrNull( 'site.protocol' );
+    my $protocolport   = $config->getResolveOrNull( 'site.protocolport' );
+    my $contextOrSlash = $config->getResolveOrNull( 'appconfig.contextorslash' );
+    my $cookieSecure   = 'https' eq $protocol? 'true' : 'false';
 
     my $yamlFh = File::Temp->new();
     my $yaml = <<YAML;
@@ -66,14 +66,15 @@ installer:
         force_server_vars: false
         server_name: $hostname
         server_port: $protocolport
-        script_path: $context
+        script_path: $contextOrSlash
 YAML
 
     UBOS::Utils::saveFile( $yamlFh, $yaml );
 
     my $out;
-    if( UBOS::Utils::myexec( "cd $appConfigDir; sudo -u http php install/phpbbcli.php --no-ansi -n install " . $yamlFh->filename, undef, \$out, \$out )) {
-        error( 'phpBB installation failed:', $out, "\nconfig file was:", $yaml );
+    my $cmd = "cd $appConfigDir; sudo -u http php install/phpbbcli.php --no-ansi -n install " . $yamlFh->filename;
+    if( UBOS::Utils::myexec( $cmd, undef, \$out, \$out )) {
+        error( 'phpBB installation failed:', $out, "\ncmd was:", $cmd, "\nconfig file was:", $yaml );
         $ret = 0;
     }
 
