@@ -1,0 +1,22 @@
+{
+    "type"  : "accessory",
+
+    "accessoryinfo" : {
+        "appid"         : "phpbb",
+        "accessoryid"   : "phpbb/googleanalytics",
+        "accessorytype" : "extension"
+    },
+
+    "roles" : {
+        "apache2" : {
+            "appconfigitems" : [
+                {
+                    "type"   : "directorytree",
+                    "name"   : "phpbb/googleanalytics",
+                    "source" : "phpbb",
+                }
+            ]
+        }
+    }
+}
+
