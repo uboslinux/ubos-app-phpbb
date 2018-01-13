@@ -4,6 +4,8 @@
 # so we regenerate. We also need to activate all extensions that have been
 # deployed to this AppConfiguration.
 #
+# Copyright (C) 2017 and later, Indie Computing Corp. All rights reserved. License: see package.
+#
 
 use strict;
 

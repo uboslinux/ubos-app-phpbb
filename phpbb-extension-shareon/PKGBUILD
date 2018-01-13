@@ -4,10 +4,10 @@ maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 pkgver=2.0.1
 ## WARNING: Must change download URL when changing version; not encoded in URL
-pkgrel=1
+pkgrel=2
 pkgdesc="Allows users to share phpBB topics and posts in various social networks"
 arch=('any')
-license=("GPL")
+license=("GPL2")
 source=("shareon_${pkgver}.zip::https://www.phpbb.com/customise/db/download/146606")
 releasepage=('https://www.phpbb.com/customise/db/extension/shareon/')
 sha512sums=('80aa6cd9bb58c3c6f3dbc24941f5509e4219afda6af766aed5e8e5c40fc2bd8356fe090faf4ce1c1dd64ff7871a47e0b93d0a95d2648010aac66ed55fcbefa8a')
