@@ -7,7 +7,8 @@
             "depends" : [
                 "php",
                 "php-apache",
-                "php-gd"
+                "php-gd",
+                "imagemagick"
             ],
             "apache2modules" : [
                 "php7"
