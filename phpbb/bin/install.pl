@@ -18,7 +18,7 @@ my $appConfigDir = $config->getResolveOrNull( 'appconfig.apache2.dir' );
 if( 'install' eq $operation ) {
     
     # We need the installer, and config.php must be writable
-    UBOS::Utils::myexec( "cp -a /usr/share/phpbb/phpbb/install $appConfigDir/install" );
+    UBOS::Utils::myexec( "cp -a /ubos/share/phpbb/phpbb/install $appConfigDir/install" );
     UBOS::Utils::myexec( "chown http:http $appConfigDir/config.php" );
 
     my $adminName    = $config->getResolveOrNull( 'site.admin.userid' );

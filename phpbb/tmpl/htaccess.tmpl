@@ -4,6 +4,6 @@
 
 <Directory "${appconfig.apache2.dir}">
   <IfModule php7_module>
-    php_admin_value open_basedir ${appconfig.apache2.dir}:/tmp:${appconfig.datadir}:/var/cache/${package.name}/${appconfig.appconfigid}
+    php_admin_value open_basedir ${appconfig.apache2.dir}:/tmp:${appconfig.datadir}:${appconfig.cachedir}
   </IfModule>
 </Directory>
