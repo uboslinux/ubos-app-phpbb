@@ -23,10 +23,10 @@ package() {
     install -D -m644 ${startdir}/appicons/{72x72,144x144}.png -t ${pkgdir}/ubos/http/_appicons/${pkgname}/
 
 # Code
-    install -D -m755 ${startdir}/bin/*.pl ${pkgdir}/ubos/share/${pkgname}/bin/
+    install -D -m755 ${startdir}/bin/*.pl -t ${pkgdir}/ubos/share/${pkgname}/bin/
 
 # Templates
-    install -D -m644 ${startdir}/tmpl/*.tmpl ${pkgdir}/ubos/share/${pkgname}/tmpl/
+    install -D -m644 ${startdir}/tmpl/*.tmpl -t ${pkgdir}/ubos/share/${pkgname}/tmpl/
 
 # Source
     mkdir -p ${pkgdir}/ubos/share/${pkgname}/phpbb
