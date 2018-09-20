@@ -4,7 +4,7 @@ maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 pkgver=1.0.3
 ## WARNING: Must change download URL when changing version; not encoded in URL
-pkgrel=1
+pkgrel=4
 pkgdesc="Allows users to share phpBB topics and posts in various social networks"
 arch=('any')
 license=("GPL2")
