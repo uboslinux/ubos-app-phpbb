@@ -2,7 +2,7 @@ developer=http://phpbb.com/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=1.0.3
+pkgver=1.0.4
 ## WARNING: Must change download URL when changing version; not encoded in URL
 pkgrel=4
 pkgdesc="Allows users to share phpBB topics and posts in various social networks"
