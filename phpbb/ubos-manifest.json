@@ -146,6 +146,10 @@
                 {
                     "type"   : "perlscript",
                     "source" : "bin/restore-config.pl"
+                },
+                {
+                    "type"   : "perlscript",
+                    "source" : "bin/upgrade.pl"
                 }
             ]
         },
@@ -178,5 +182,5 @@
                 "value" : "Let's keep talking"
             }
         }
-    }            
+    }
 }
