@@ -2,8 +2,8 @@ developer=http://phpbb.com/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=3.2.5
-pkgrel=4
+pkgver=3.2.7
+pkgrel=1
 pkgdesc="Free, open source bulletin board software"
 arch=('any')
 license=("GPL2")
@@ -13,7 +13,7 @@ depends=(
     'php'
 )
 options=('!strip')
-sha512sums=('6f167c0a2d42ecf6965ee3fe3088459cf332a85c12ff6ea6fbb70578312528e5df96107d1d73a51f2bd12deb6da9ddf8076a483b8fb0b762beee93df11ed43c1')
+sha512sums=('7d6595105d15dd37d0a41608cbd7acfdc004e3649b274371f48600cd3f4e6c0bffff779d3fb997644d6a7eb147235875577064506bfff13afcbb52c6a8b5391d')
 
 package() {
 # Manifest
