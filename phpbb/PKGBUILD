@@ -2,18 +2,20 @@ developer=http://phpbb.com/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=3.2.7
+_majorrel=3.2
+pkgver=${_majorrel}.8
 pkgrel=1
 pkgdesc="Free, open source bulletin board software"
 arch=('any')
 license=("GPL2")
-source=("https://www.phpbb.com/files/release/phpBB-${pkgver}.zip")
+source=("https://download.phpbb.com/pub/release/${_majorrel}/${pkgver}/phpBB-${pkgver}.zip")
 releasepage=("https://www.phpbb.com/downloads/")
 depends=(
     'php'
+    'smtp-server'
 )
 options=('!strip')
-sha512sums=('7d6595105d15dd37d0a41608cbd7acfdc004e3649b274371f48600cd3f4e6c0bffff779d3fb997644d6a7eb147235875577064506bfff13afcbb52c6a8b5391d')
+sha512sums=('835948f0085cdc2ba0cf4e24a82d7da4ffe2869f500e6fe9dbeb0296c18da131c0d6eeb4d7dd00c969598644adfe12baef235865086bbf6bd5892aabf97fbc92')
 
 package() {
 # Manifest
