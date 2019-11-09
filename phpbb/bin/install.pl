@@ -16,7 +16,7 @@ my $ret = 1;
 my $appConfigDir = $config->getResolveOrNull( 'appconfig.apache2.dir' );
 
 if( 'install' eq $operation ) {
-    
+
     # We need the installer, and config.php must be writable
     UBOS::Utils::myexec( "cp -a /ubos/share/phpbb/phpbb/install $appConfigDir/install" );
     UBOS::Utils::myexec( "chown http:http $appConfigDir/config.php" );
@@ -34,11 +34,12 @@ if( 'install' eq $operation ) {
     my $dbUser  = $config->getResolveOrNull( 'appconfig.mysql.dbuser.maindb' );
     my $dbCred  = $config->getResolveOrNull( 'appconfig.mysql.dbusercredential.maindb' );
 
-    my $hostname       = $config->getResolveOrNull( 'site.hostname' );
-    my $protocol       = $config->getResolveOrNull( 'site.protocol' );
-    my $protocolport   = $config->getResolveOrNull( 'site.protocolport' );
-    my $contextOrSlash = $config->getResolveOrNull( 'appconfig.contextorslash' );
-    my $cookieSecure   = 'https' eq $protocol? 'true' : 'false';
+    my $hostname            = $config->getResolveOrNull( 'site.hostname' );
+    my $hostnameOrLocalhost = $config->getResolveOrNull( 'site.hostnameorlocalhost' );
+    my $protocol            = $config->getResolveOrNull( 'site.protocol' );
+    my $protocolport        = $config->getResolveOrNull( 'site.protocolport' );
+    my $contextOrSlash      = $config->getResolveOrNull( 'appconfig.contextorslash' );
+    my $cookieSecure        = 'https' eq $protocol? 'true' : 'false';
 
     my $yamlFh = File::Temp->new();
     my $yaml = <<YAML;
@@ -66,7 +67,7 @@ installer:
         cookie_secure: $cookieSecure
         server_protocol: $protocol://
         force_server_vars: false
-        server_name: $hostname
+        server_name: $hostnameOrLocalhost
         server_port: $protocolport
         script_path: $contextOrSlash
 YAML
