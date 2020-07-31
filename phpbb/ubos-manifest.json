@@ -165,7 +165,7 @@
                     "name"       : "maindb",
                     "retentionpolicy"  : "keep",
                     "retentionbucket"  : "maindb",
-                    "privileges" : "select, insert, update, delete, create, alter, drop"
+                    "privileges" : "select, insert, update, delete, create, alter, drop, index"
                 }
             ]
         }
