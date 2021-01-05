@@ -2,15 +2,15 @@ developer=http://phpbb.com/
 url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
-pkgver=1.0.5
+pkgver=1.0.6
 ## WARNING: Must change download URL when changing version; not encoded in URL
 pkgrel=1
 pkgdesc="Allows users to share phpBB topics and posts in various social networks"
 arch=('any')
 license=("GPL2")
-source=("googleanalytics_${pkgver}.zip::https://www.phpbb.com/customise/db/download/172131?sid=19be4dde4963be5f3e0cea1aa61474c8")
+source=("googleanalytics_${pkgver}.zip::https://www.phpbb.com/customise/db/download/185686?sid=dc8ccf5ad9d9479342e19e8b72f4a540")
 releasepage=('https://www.phpbb.com/customise/db/extension/googleanalytics/')
-sha512sums=('d94ab7e61fa6682e8c700874c411e26f6b2f57004b3b9c4c8e6fcf838028b34c5a3d99e2c380c1aea4adf311fdcc0e117dca81b2bcd0ccd2bc70b2e07f5ef320')
+sha512sums=('c0220296ced7aa4098a8ff7e0d62b62750715cebaaf7695a947023eb23830b21aaf11826de586cdac2757979b3516679693a286fcdd9ff3301388df71f202a8a')
 depends=(
     'phpbb'
 )
