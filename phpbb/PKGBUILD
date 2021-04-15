@@ -3,7 +3,7 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _majorrel=3.3
-pkgver=${_majorrel}.2
+pkgver=${_majorrel}.3
 pkgrel=1
 pkgdesc="Free, open source bulletin board software"
 arch=('any')
@@ -15,7 +15,7 @@ depends=(
     'smtp-server'
 )
 options=('!strip')
-sha512sums=('8a93740aefa857b52736ddf8c9e8264eb6ee1d9a461befb0814db44b8695147fbfd9bfa331dada06047cc5a2b36a82d94b761fc010e0e96f6d4426106945dcbd')
+sha512sums=('34c8c0e222bd5279e67b1c8cf55ddb6e0718b5f020f2af82c5d12cf6443a4d9748eb0a6998314fe0e4c488a37c41994086525e16b2bafc581142c9c0b5768f1d')
 
 package() {
 # Manifest
