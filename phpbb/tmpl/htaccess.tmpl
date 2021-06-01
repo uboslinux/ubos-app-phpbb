@@ -3,7 +3,7 @@
 #
 
 <Directory "${appconfig.apache2.dir}">
-  <IfModule php7_module>
+  <IfModule php_module>
     php_admin_value open_basedir ${appconfig.apache2.dir}/:/tmp/:/ubos/tmp/:${appconfig.datadir}/:${appconfig.cachedir}/:/usr/sbin/
   </IfModule>
 </Directory>

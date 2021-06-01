@@ -11,7 +11,7 @@
                 "imagemagick"
             ],
             "apache2modules" : [
-                "php7"
+                "php"
             ],
             "phpmodules" : [
                 "gd",
