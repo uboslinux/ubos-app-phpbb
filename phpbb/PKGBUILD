@@ -3,7 +3,7 @@ url=${developer}
 maintainer=http://indiecomputing.com/
 pkgname=$(basename $(pwd))
 _majorrel=3.3
-pkgver=${_majorrel}.4
+pkgver=${_majorrel}.5
 pkgrel=2
 pkgdesc="Free, open source bulletin board software"
 arch=('any')
@@ -15,12 +15,7 @@ depends=(
     'smtp-server'
 )
 options=('!strip')
-sha512sums=('a51ed237e25e2e53f0f841f0b1af57dae4067de62767845e8f7d2dbca7852c87dafa42221970c7d43d0fea2e8578b9e566e44eb7fbaef9f4888479c4df88a70b')
-
-prepare() {
-    cd ${srcdir}/phpBB3
-    patch -p0 < ${startdir}/null-container.patch
-}
+sha512sums=('7caff31de70fb60ed904d887d7ede503f1b282a27f97408888e8f4c8f1fd8d84d88c578b32b1e572bed397976d883b49f44f4805f7b6ff299ffcd7c0de8d7273')
 
 package() {
 # Manifest
